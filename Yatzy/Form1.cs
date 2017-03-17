@@ -28,5 +28,11 @@ namespace Yatzy
         {
             Application.Exit();
         }
+
+        private void btnHighscore_Click(object sender, EventArgs e)
+        {
+            HighScoreForm highScoreForm = new HighScoreForm();
+            highScoreForm.Show();
+        }
     }
 }

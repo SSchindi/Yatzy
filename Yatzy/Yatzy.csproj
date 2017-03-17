@@ -40,8 +40,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +69,30 @@
     </Compile>
     <Compile Include="Controls\InGameRollSystem.Designer.cs">
       <DependentUpon>InGameRollSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HighScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HighScoreForm.Designer.cs">
+      <DependentUpon>HighScoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.tt</DependentUpon>
     </Compile>
     <Compile Include="PreGameForm.cs">
       <SubType>Form</SubType>
@@ -82,6 +117,9 @@
     <EmbeddedResource Include="Controls\InGameRollSystem.resx">
       <DependentUpon>InGameRollSystem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HighScoreForm.resx">
+      <DependentUpon>HighScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PreGameForm.resx">
       <DependentUpon>PreGameForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +139,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="Model\User.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>User.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\User.edmx.diagram">
+      <DependentUpon>User.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -131,6 +177,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dice-6-md.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\User.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>User.edmx</DependentUpon>
+      <LastGenOutput>User.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\User.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>User.edmx</DependentUpon>
+      <LastGenOutput>User1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
